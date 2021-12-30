@@ -1,0 +1,5 @@
+D:\Work -FCIS\2020_2021\HPC2020\HPC_ProjectTemplate\HPC_ProjectTemplate\Debug\HPC_ProjectTemplate.vcxprojAssemblyReference.cache
+D:\Work -FCIS\2020_2021\AI_Parallel_2020_2021\Project\HPC_ProjectTemplate\HPC_ProjectTemplate\Debug\HPC_ProjectTemplate.vcxprojAssemblyReference.cache
+C:\Users\omars\Downloads\HPC_ProjectTemplate\HPC_ProjectTemplate\HPC_ProjectTemplate\Debug\HPC_ProjectTemplate.vcxproj.AssemblyReference.cache
+C:\Users\omars\Downloads\HPC_ProjectTemplate\HPC_TASK_yam3lm\HPC_ProjectTemplate\HPC_ProjectTemplate\Debug\HPC_ProjectTemplate.vcxproj.AssemblyReference.cache
+C:\Users\omars\Downloads\HPC_ProjectTemplate\HPC_TASK_yam3lm\HPC_ProjectTemplate - Color version\HPC_ProjectTemplate\Debug\HPC_ProjectTemplate.vcxproj.AssemblyReference.cache

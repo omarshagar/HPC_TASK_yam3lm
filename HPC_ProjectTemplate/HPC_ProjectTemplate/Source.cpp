@@ -36,10 +36,10 @@ int* inputImage(int* w, int* h, System::String^ imagePath) //put the size of ima
 	OriginalImageHeight = BM.Height;
 	*w = BM.Width;
 	*h = BM.Height;
-	int *Red = new int[BM.Height * BM.Width];
-	int *Green = new int[BM.Height * BM.Width];
-	int *Blue = new int[BM.Height * BM.Width];
-	input = new int[BM.Height*BM.Width];
+	int* Red = new int[BM.Height * BM.Width];
+	int* Green = new int[BM.Height * BM.Width];
+	int* Blue = new int[BM.Height * BM.Width];
+	input = new int[BM.Height * BM.Width];
 	for (int i = 0; i < BM.Height; i++)
 	{
 		for (int j = 0; j < BM.Width; j++)
@@ -50,7 +50,7 @@ int* inputImage(int* w, int* h, System::String^ imagePath) //put the size of ima
 			Blue[i * BM.Width + j] = c.B;
 			Green[i * BM.Width + j] = c.G;
 
-			input[i*BM.Width + j] = ((c.R + c.B + c.G) / 3); //gray scale value equals the average of RGB values
+			input[i * BM.Width + j] = ((c.R + c.B + c.G) / 3); //gray scale value equals the average of RGB values
 
 		}
 
@@ -69,24 +69,24 @@ void createImage(int* image, int width, int height, int index)
 		for (int j = 0; j < MyNewImage.Width; j++)
 		{
 			//i * OriginalImageWidth + j
-			if (image[i*width + j] < 0)
+			if (image[i * width + j] < 0)
 			{
-				image[i*width + j] = 0;
+				image[i * width + j] = 0;
 			}
-			if (image[i*width + j] > 255)
+			if (image[i * width + j] > 255)
 			{
-				image[i*width + j] = 255;
+				image[i * width + j] = 255;
 			}
-			System::Drawing::Color c = System::Drawing::Color::FromArgb(image[i*MyNewImage.Width + j], image[i*MyNewImage.Width + j], image[i*MyNewImage.Width + j]);
+			System::Drawing::Color c = System::Drawing::Color::FromArgb(image[i * MyNewImage.Width + j], image[i * MyNewImage.Width + j], image[i * MyNewImage.Width + j]);
 			MyNewImage.SetPixel(j, i, c);
 		}
 	}
 	MyNewImage.Save("..//Data//Output//outputRes" + index + ".png");
 	cout << "result Image Saved " << index << endl;
 }
-void initialize_Centroids(double* &Centroid,int * image,int W , int H)
+void initialize_Centroids(double*& Centroid, int* image, int W, int H)
 {
-	
+
 	set<int>st;
 	for (int i = 0; i < K; i++)
 	{
@@ -100,15 +100,15 @@ void initialize_Centroids(double* &Centroid,int * image,int W , int H)
 	}
 }
 
-void pre_scatterv(int* &send_counts_scatterv,int* &displs_scatterv , int total)
+void pre_scatterv(int*& send_counts_scatterv, int*& displs_scatterv, int total)
 {
-	
-	
+
+
 	int basic = total / sz;
 	int remain = total % sz;
 	int sum = 0;
 	int tmp;
-	for (int i=0;i<sz;i++)
+	for (int i = 0; i < sz; i++)
 	{
 		displs_scatterv[i] = sum;
 		tmp = min(1, remain);
@@ -124,8 +124,8 @@ int main()
 {
 
 	/*
-	
-	
+
+
 	*/
 	MPI_Init(NULL, NULL);
 	MPI_Comm_size(MPI_COMM_WORLD, &sz);
@@ -134,7 +134,7 @@ int main()
 	int ImageWidth = 4, ImageHeight = 4;
 
 	int start_s, stop_s, TotalTime = 0;
-	int* imageData=NULL;
+	int* imageData = NULL;
 	//initial values of centroids
 	double* Centroid = new double[K];;
 	double* new_Centroid = new double[K];;
@@ -169,14 +169,14 @@ int main()
 	int* pixels = new int[pixel_cnt];
 	MPI_Scatterv(imageData, send_counts_scatterv, displs_scatterv, MPI_INT, pixels, pixel_cnt, MPI_INT, 0, MPI_COMM_WORLD);
 
-		//some important data for every iteration 
-		int* sum_of_distances_per_centroid = new int[K];
-		int* count_pixel_per_centroid = new int[K];
-		int* centroid_id_per_pixel = new int[pixel_cnt];
-		int* cluster_size = new int[K];
-		int* cluster_inner_sum = new int[K];
-		
-	while (true) 
+	//some important data for every iteration 
+	int* sum_of_distances_per_centroid = new int[K];
+	int* count_pixel_per_centroid = new int[K];
+	int* centroid_id_per_pixel = new int[pixel_cnt];
+	int* cluster_size = new int[K];
+	int* cluster_inner_sum = new int[K];
+
+	while (true)
 	{
 		MPI_Bcast(Centroid, K, MPI_DOUBLE, 0, MPI_COMM_WORLD);
 
@@ -190,13 +190,13 @@ int main()
 
 		memset(sum_of_distances_per_centroid, 0, sizeof(int) * K);
 		memset(count_pixel_per_centroid, 0, sizeof(int) * K);
-		for (int i=0;i<pixel_cnt;i++)
+		for (int i = 0; i < pixel_cnt; i++)
 		{
 			int mn = 1000000;
 			int id = 0;
-			for (int j=0;j<K;j++)
+			for (int j = 0; j < K; j++)
 			{
-				if (mn>abs(Centroid[j]-pixels[i]))
+				if (mn > abs(Centroid[j] - pixels[i]))
 				{
 					mn = Centroid[j] - pixels[i];
 					id = j;
@@ -207,21 +207,21 @@ int main()
 			centroid_id_per_pixel[i] = id;
 			//if (centroid_id_per_pixel[i] > 2 || centroid_id_per_pixel[i] < 0)cout << "7a7a" << endl;
 		}
-		
+
 		MPI_Reduce(sum_of_distances_per_centroid, cluster_inner_sum, K, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
 		MPI_Reduce(count_pixel_per_centroid, cluster_size, K, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
-		
+
 		if (rnk == 0)
 		{
 			int same = 1;
-			for (int i=0;i<K;i++)
+			for (int i = 0; i < K; i++)
 			{
 				new_Centroid[i] = cluster_inner_sum[i] / (double)(cluster_size[i]);
 				new_Centroid[i] = min(255, max(new_Centroid[i], 0));
 				if (abs(new_Centroid[i] - Centroid[i]) > eps)same = 0;
 				Centroid[i] = new_Centroid[i];
 			}
-			
+
 			for (int i = 1; i < sz; i++)
 				MPI_Send(&same, 1, MPI_INT, i, 0, MPI_COMM_WORLD);
 
@@ -229,33 +229,33 @@ int main()
 			{
 				break;
 			}
-				
-				
+
+
 		}
 		else
 		{
 			int same;
 			MPI_Status st;
-			MPI_Recv(&same, 1, MPI_INT, 0, 0, MPI_COMM_WORLD,&st);
+			MPI_Recv(&same, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, &st);
 			if (same)break;
 		}
 
-		
+
 	}
 	int* cluster = new int[ImageHeight * ImageWidth];
 
 	MPI_Gatherv(centroid_id_per_pixel, pixel_cnt, MPI_INT, cluster, send_counts_scatterv, displs_scatterv, MPI_INT, 0, MPI_COMM_WORLD);
 	if (rnk == 0)
 	{
-		
+
 
 		for (int i = 0; i < ImageHeight * ImageWidth; i++)
 		{
 			imageData[i] = Centroid[cluster[i]];
 		}
 
-		
-		
+
+
 		stop_s = clock();
 		TotalTime += (stop_s - start_s) / double(CLOCKS_PER_SEC) * 1000;
 		createImage(imageData, ImageWidth, ImageHeight, 1);
@@ -266,6 +266,3 @@ int main()
 	return 0;
 
 }
-
-
-

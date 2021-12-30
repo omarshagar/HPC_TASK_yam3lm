@@ -1,0 +1,8 @@
+﻿  Source.cpp
+C:\Users\omars\Downloads\HPC_ProjectTemplate\HPC_TASK_yam3lm\HPC_ProjectTemplate - Color version\HPC_ProjectTemplate\Source.cpp(25,7): warning C4101: 'input': unreferenced local variable
+C:\Users\omars\Downloads\HPC_ProjectTemplate\HPC_TASK_yam3lm\HPC_ProjectTemplate - Color version\HPC_ProjectTemplate\Source.cpp(300,41): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\omars\Downloads\HPC_ProjectTemplate\HPC_TASK_yam3lm\HPC_ProjectTemplate - Color version\HPC_ProjectTemplate\Source.cpp(301,42): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\omars\Downloads\HPC_ProjectTemplate\HPC_TASK_yam3lm\HPC_ProjectTemplate - Color version\HPC_ProjectTemplate\Source.cpp(302,42): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\omars\Downloads\HPC_ProjectTemplate\HPC_TASK_yam3lm\HPC_ProjectTemplate - Color version\HPC_ProjectTemplate\Source.cpp(305,66): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+  Source.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  HPC_ProjectTemplate.vcxproj -> C:\Users\omars\Downloads\HPC_ProjectTemplate\HPC_TASK_yam3lm\HPC_ProjectTemplate - Color version\Debug\HPC_ProjectTemplate.exe

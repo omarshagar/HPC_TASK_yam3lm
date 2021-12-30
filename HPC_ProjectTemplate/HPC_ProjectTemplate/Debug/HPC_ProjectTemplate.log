@@ -1,6 +1,6 @@
 ﻿  Source.cpp
-C:\Users\omars\Downloads\HPC_ProjectTemplate\HPC_ProjectTemplate\HPC_ProjectTemplate\Source.cpp(201,23): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\omars\Downloads\HPC_ProjectTemplate\HPC_ProjectTemplate\HPC_ProjectTemplate\Source.cpp(254,38): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\omars\Downloads\HPC_ProjectTemplate\HPC_ProjectTemplate\HPC_ProjectTemplate\Source.cpp(260,66): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+C:\Users\omars\Downloads\HPC_ProjectTemplate\HPC_TASK_yam3lm\HPC_ProjectTemplate\HPC_ProjectTemplate\Source.cpp(201,23): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\omars\Downloads\HPC_ProjectTemplate\HPC_TASK_yam3lm\HPC_ProjectTemplate\HPC_ProjectTemplate\Source.cpp(254,38): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\omars\Downloads\HPC_ProjectTemplate\HPC_TASK_yam3lm\HPC_ProjectTemplate\HPC_ProjectTemplate\Source.cpp(260,66): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
   Source.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
-  HPC_ProjectTemplate.vcxproj -> C:\Users\omars\Downloads\HPC_ProjectTemplate\HPC_ProjectTemplate\Debug\HPC_ProjectTemplate.exe
+  HPC_ProjectTemplate.vcxproj -> C:\Users\omars\Downloads\HPC_ProjectTemplate\HPC_TASK_yam3lm\HPC_ProjectTemplate\Debug\HPC_ProjectTemplate.exe
