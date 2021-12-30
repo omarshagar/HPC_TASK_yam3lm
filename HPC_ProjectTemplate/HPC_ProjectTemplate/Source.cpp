@@ -19,7 +19,7 @@ using namespace std;
 using namespace msclr::interop;
 int rnk;
 int sz;
-int K = 6;
+int K =2;
 int* inputImage(int* w, int* h, System::String^ imagePath) //put the size of image in w & h
 {
 	int* input;
@@ -198,7 +198,7 @@ int main()
 			{
 				if (mn > abs(Centroid[j] - pixels[i]))
 				{
-					mn = Centroid[j] - pixels[i];
+					mn = abs(Centroid[j] - pixels[i]);
 					id = j;
 				}
 			}
@@ -217,7 +217,7 @@ int main()
 			for (int i = 0; i < K; i++)
 			{
 				new_Centroid[i] = cluster_inner_sum[i] / (double)(cluster_size[i]);
-				new_Centroid[i] = min(255, max(new_Centroid[i], 0));
+			//	new_Centroid[i] = min(255, max(new_Centroid[i], 0));
 				if (abs(new_Centroid[i] - Centroid[i]) > eps)same = 0;
 				Centroid[i] = new_Centroid[i];
 			}

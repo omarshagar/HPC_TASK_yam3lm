@@ -183,7 +183,7 @@ int main()
 
 	System::String^ imagePath;
 	std::string img;
-	img = "..//Data//Input//test2.jpg";
+	img = "..//Data//Input//test3.jpg";
 
 	imagePath = marshal_as<System::String^>(img);
 	inputImage(&ImageWidth, &ImageHeight, imagePath,R,G,B);
